@@ -12,6 +12,11 @@ jobs:
       run: |
         curl -L -o theme.zip "${{ github.event.client_payload.theme_zip }}"
         unzip theme.zip
+        
+    - uses: actions/setup-node@v1
+      with:
+        node-version: '12'  
+    
     - name: Test My Theme
       id: test
       uses: StevenDufresne/wp-theme-validation-action-experiment@test-package
