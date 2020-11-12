@@ -19,7 +19,7 @@ jobs:
     
     - name: Test My Theme
       id: test
-      uses: WordPress/theme-review-action@1
+      uses: StevenDufresne/theme-review-action@support_block_based
       with:
         root-folder: ${{ github.event.client_payload.theme_slug }}
         accessible-ready: ${{ github.event.client_payload.accessible_ready }}
