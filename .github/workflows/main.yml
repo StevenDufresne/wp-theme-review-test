@@ -19,7 +19,7 @@ jobs:
     
     - name: Test My Theme
       id: test
-      uses: StevenDufresne/theme-review-action@support_block_based
+      uses: StevenDufresne/theme-review-action@trunk
       env:
         THEME_TYPE: block
       with:
