@@ -5,21 +5,17 @@ on: repository_dispatch
 
 jobs:
   run_tests:
-    runs-on: ubuntu-latest
+    runs-on: windows-latest
 
     steps:
-    - name: Download Theme
-      run: |
-        curl -L -o theme.zip "${{ github.event.client_payload.theme_zip }}"
-        unzip theme.zip
-        
+
     - uses: actions/setup-node@v1
       with:
         node-version: '12'  
     
     - name: Test My Theme
       id: test
-      uses: StevenDufresne/theme-review-action@test_error
+      uses: StevenDufresne/theme-review-action@try_windows
       env:
         THEME_TYPE: block
       with:
