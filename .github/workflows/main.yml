@@ -8,6 +8,10 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
+    - name: Download Theme
+      run: |
+        curl -L -o theme.zip "${{ github.event.client_payload.theme_zip }}"
+        unzip theme.zip
 
     - uses: actions/setup-node@v1
       with:
