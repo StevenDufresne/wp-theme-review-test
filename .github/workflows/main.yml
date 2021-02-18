@@ -23,7 +23,6 @@ jobs:
       with:
         root-folder: ${{ github.event.client_payload.theme_slug }}
         accessible-ready: ${{ github.event.client_payload.accessible_ready }}
-        ui-debug: true  
     - uses: actions/upload-artifact@v2
       if: ${{ always() }}
       with:
