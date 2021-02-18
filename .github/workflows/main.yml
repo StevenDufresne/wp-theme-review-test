@@ -1,4 +1,3 @@
-
 name: Theme Review 
 
 on: repository_dispatch
@@ -12,14 +11,15 @@ jobs:
       run: |
         curl -L -o theme.zip "${{ github.event.client_payload.theme_zip }}"
         unzip theme.zip
-
+  
+     ## We need this until WordPress 5.6 is shipped. @wordpress/env relies on a package that doesn't work with Node14
     - uses: actions/setup-node@v1
       with:
-        node-version: '12'  
-    
+        node-version: '12'
+      
     - name: Test My Theme
       id: test
-      uses: Wordpress/theme-review-action@trunk
+      uses: WordPress/theme-review-action@trunk
       with:
         root-folder: ${{ github.event.client_payload.theme_slug }}
         accessible-ready: ${{ github.event.client_payload.accessible_ready }}
@@ -28,6 +28,7 @@ jobs:
       with:
         name: Screenshots
         path: ${{ steps.test.outputs.screenshots }}
+        retention-days: 5
     - uses: actions/upload-artifact@v2
       if: ${{ always() }}
       with:
