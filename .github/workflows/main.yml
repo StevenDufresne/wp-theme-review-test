@@ -19,7 +19,7 @@ jobs:
     - name: Print Environment
       env:
           GITHUB_EVENT: ${{ toJSON(github.event.client_payload) }}
-      run: echo $GITHUB_EVENT"
+      run: echo "$GITHUB_EVENT"
     - name: Test My Theme
       id: test
       uses: WordPress/theme-review-action@trunk
