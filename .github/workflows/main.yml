@@ -30,7 +30,7 @@ jobs:
       if: ${{ always() }}
       with:
         name: Ui-check output
-        path: ${{ steps.test.outputs.output }}
+        path: ${{ steps.test.outputs.location }}
         retention-days: 5
     - uses: actions/upload-artifact@v2
       if: ${{ always() }}
