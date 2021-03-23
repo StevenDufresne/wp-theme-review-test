@@ -22,15 +22,15 @@ jobs:
       run: echo "$GITHUB_EVENT"
     - name: Test My Theme
       id: test
-      uses: WordPress/theme-review-action@trunk
+      uses: WordPress/theme-review-action@add/sanity-tests
       with:
         root-folder: ${{ github.event.client_payload.theme_slug }}
         accessible-ready: ${{ github.event.client_payload.accessible_ready }}
     - uses: actions/upload-artifact@v2
       if: ${{ always() }}
       with:
-        name: Screenshots
-        path: ${{ steps.test.outputs.screenshots }}
+        name: Ui-check output
+        path: ${{ steps.test.outputs.output }}
         retention-days: 5
     - uses: actions/upload-artifact@v2
       if: ${{ always() }}
