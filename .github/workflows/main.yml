@@ -22,7 +22,7 @@ jobs:
       run: echo "$GITHUB_EVENT"
     - name: Test My Theme
       id: test
-      uses: WordPress/theme-review-action@try/remove-env-info
+      uses: WordPress/theme-review-action@trunk
       with:
         root-folder: ${{ github.event.client_payload.theme_slug }}
         accessible-ready: ${{ github.event.client_payload.accessible_ready }}
